@@ -4,19 +4,19 @@ void  InitStack(Stack* S)
 {
 
 	//Stack hao,* S=&hao;
-	S->base = (Datatype *)malloc(MAX*sizeof(Datatype));
+	S->base = (Datatype*)malloc(MAX * sizeof(Datatype));
 	if (S->base == NULL)
 	{
-		printf("ÉêÇëÊ§°Ü\n");
+		printf("ç”³è¯·å¤±è´¥\n");
 		exit(-1);
 	}
 	S->stacksize = MAX;
-	S->top = S->base-1;
+	S->top = S->base - 1;
 	//return S;
 }
 void ClearStack(Stack* S)
 {
-	S->top = S->base-1;
+	S->top = S->base - 1;
 }
 
 void DestoryStack(Stack* S)
@@ -27,9 +27,9 @@ void DestoryStack(Stack* S)
 
 void PushStack(Stack* S, Datatype Data)
 {
-	if (S->top- S->base==S->stacksize)
+	if (S->top - S->base == S->stacksize)
 	{
-		S->base = (Datatype*)realloc(S->base,2*MAX*sizeof(Datatype));
+		S->base = (Datatype*)realloc(S->base, 2 * MAX * sizeof(Datatype));
 		if (S->base)  exit(-1);
 		S->top = S->base + S->stacksize;
 		S->stacksize += MAX;
@@ -48,17 +48,24 @@ Datatype GetTop(Stack* S)
 	}
 	else
 	{
-	return  *S->top;
+		return  *S->top;
 	}
 
 }
 Datatype PopStack(Stack* S)
 {
 	Datatype yy = 0;
-	if (S->top > S->base)
+	if (S->top >= S->base)
 	{
-	yy=*S->top--;
-	printf("%d  ", yy);
-   return yy;
+		yy = *S->top--;
+	//	printf("%d  ", yy);
+		return yy;
 	}
+}
+int EmptyStack(Stack* S)
+{
+	if (S->top == S->base-1)
+		return 1;
+	else
+		return 0;
 }
