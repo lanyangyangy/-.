@@ -71,7 +71,7 @@ int EmptyStack(Stack* S)
 }
 int FullStack(Stack* S)
 {
-	if (S->top - S->base == S->stacksize)
+	if (S->top - S->base == S->stacksize-1)
 		return 1;
 	else
 		return 0;
