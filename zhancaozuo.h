@@ -18,3 +18,4 @@ Datatype PopStack(Stack* S);
  void PushStack(Stack* S, Datatype Data);
  Datatype GetTop(Stack* S);
  int EmptyStack(Stack* S);
+int FullStack(Stack* S)
